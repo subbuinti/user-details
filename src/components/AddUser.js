@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import InputField from "../utils/InputComponent/input";
+import Button from "../utils/Button/button";
 
 export default function AddUser({ route }) {
   const [userName, setUserName] = useState("");
@@ -225,30 +226,27 @@ export default function AddUser({ route }) {
           )}
           {params?.id ? (
             <div className="mt-10 flex items-center justify-center gap-10">
-              <button
+              <Button
                 className="bg-blue-500 rounded-xl px-6 py-2 text-white"
                 onClick={(e) => handleSubmit(e)}
-              >
-                Update
-              </button>
-              <button
+                buttonText="Update"
+              ></Button>
+              <Button
                 className="border border-black rounded-xl px-6 py-2 "
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(-1);
                 }}
-              >
-                Cancel
-              </button>
+                buttonText="Cancel"
+              ></Button>
             </div>
           ) : (
             <div className="mt-10 flex items-center justify-center">
-              <button
+              <Button
                 className="bg-blue-500 rounded-xl px-6 py-2 text-white"
                 onClick={(e) => handleSubmit(e)}
-              >
-                Submit{" "}
-              </button>
+                buttonText="Submit"
+              ></Button>
             </div>
           )}
         </form>
