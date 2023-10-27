@@ -113,13 +113,34 @@ export default function UserList() {
           <div className="flex flex-wrap gap-10 mx-24">
             {usersList?.map((item) => {
               return (
-                <div className="flex flex-col w-96 h-96">
+                <div className="flex flex-col w-96 h-96 bg-gray-200  pl-4 pt-10 rounded-xl ">
                   <UserDetailsCard
                     name={item.name}
                     email={item.email}
                     gender={item.gender}
                     dob={item.dob}
                   />
+
+                  <div className="flex flex-row gap-20 ml-20 mt-10">
+                    <div
+                      onClick={() => {
+                        const allUsers =
+                          JSON.parse(localStorage.getItem("users")) || [];
+                        const objIndex = allUsers.findIndex(
+                          (obj) => obj.id === Number(item.id)
+                        );
+                        allUsers.splice(objIndex, 1);
+                        const finalUsers = JSON.stringify(allUsers);
+                        localStorage.setItem("users", finalUsers);
+                        setUsersList(allUsers);
+                      }}
+                    >
+                      <DeleteComponent />
+                    </div>
+                    <Link to={`/edit/${item.id}`}>
+                      <EditComponent />
+                    </Link>
+                  </div>
                 </div>
               );
             })}

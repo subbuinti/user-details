@@ -4,7 +4,7 @@ import EditComponent from "../EditIcon/editIcon";
 
 export default function UserDetailsCard(props) {
   return (
-    <div className="bg-gray-200  pl-4 pt-10 rounded-xl m-2 pb-10">
+    <div className="">
       <div className="font-bold text-lg gap-2 flex flex-row">
         Name: <p className="text-lg font-normal">{props.name}</p>
       </div>
@@ -18,10 +18,10 @@ export default function UserDetailsCard(props) {
       <div className="font-bold text-lg gap-2 flex flex-row mt-10">
         DOB: <p className="text-lg font-normal">{props.dob}</p>
       </div>
-      <div className="flex flex-row mt-10 gap-20 ml-20">
+      {/* <div className="flex flex-row mt-10 gap-20 ml-20">
         <DeleteComponent />
         <EditComponent />
-      </div>
+      </div> */}
     </div>
   );
 }
